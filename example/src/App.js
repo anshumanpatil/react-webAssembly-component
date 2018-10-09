@@ -5,8 +5,14 @@ import WasmComponent from 'react_webassembly_component'
 export default class App extends Component {
   constructor(){
     super()
-    let __WasmComponent = new WasmComponent("File.wasm");
-    __WasmComponent.loadWasm();
+    let __WasmComponent = new WasmComponent(__dirname + "/test.wasm");
+    __WasmComponent.loadWasm()
+    .then(webassembly=>{
+      console.log(webassembly)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
   }
   render () {
     
